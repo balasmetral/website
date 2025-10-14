@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balas Metral & Associés - Cabinet d'Avocats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .navbar {
+            background: rgba(44, 62, 80, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white !important;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+            transform: translateY(-1px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* .qui-sommes-nous::before {
+          content: "";
+          position: absolute;
+          top: 0; 
+          left: 0; 
+          width: 100%; 
+          height: 100%;
+          background: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952') center center / cover no-repeat;
+          opacity: 0.12;
+          z-index: -1; 
+        }
+
+        #qui-sommes-nous {
+          padding-top: 80px;
+          padding-bottom: 30px;
+        } */
+
+
+        /* .qui-sommes-nous {
+            min-height: 500px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qui-sommes-nous::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: -1;
+        } */
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            transform: translateX(-50%);
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .team-card h5 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-card:hover {
+            /* transform: translateY(-10px); */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+
+        .team-portrait {
+            width: 100%;
+            height: 120px;
+            /* border-radius: 50%; */
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-portrait::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>');
+            background-size: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+        }
+
+        .domain-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .domain-card:hover {
+            /* transform: translateX(5px); */
+            /* box-shadow: 0 8px 25px rgba(0,0,0,0.25); */
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info i {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+            border-radius: 25px;
+            padding: 10px 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .employee-card img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          display: block;
+          margin: 0 auto;
+        }
+        .employee-card {
+          max-width: 300px; /* optional, controls card size */
+          margin: 1rem auto;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+                padding: 1rem 0;
+            }
+            
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .team-portrait {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-balance-scale me-2"></i>
+                Balas Metral & Associés
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#qui-sommes-nous">Qui sommes nous</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#domaines">Domaines d'intervention</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#equipe">Équipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center">
+                <h1 class="display-4 mb-4">Cabinet d'Avocats Balas Metral & Associés</h1>
+                <p class="lead mb-5">Expertise juridique et accompagnement personnalisé depuis plus de 30 ans à Lyon</p>
+                <a href="#contact" class="btn btn-light btn-lg">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qui sommes nous -->
+    <section id="qui-sommes-nous" class="section qui-sommes-nous">
+        <div class="container">
+            <h2 class="section-title">Qui sommes nous</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center">
+                        <p class="lead mb-4">
+                            Le cabinet est issu de la SCP GOUY & BALAS, devenue en 1995 la SCP BALAS & METRAL par l'association de Bertrand BALAS et Bruno METRAL et en 2021 la SELARL BALAS METRAL & ASSOCIÉS.
+                        </p>
+                        <p class="mb-4">
+                            En 2025, la structure intègre en qualité d'associés Audrey Elise MICHEL et Vincent HILAIRE, collaborateurs au sein du cabinet depuis 2014 et 2017, et accueille deux nouveaux collaborateurs pour renforcer son équipe : Adrien DUPIN et Kévin COELHO FERREIRA.
+                        </p>
+                        <p class="font-weight-bold text-primary">
+                            Le cabinet se compose aujourd'hui de six avocats et deux assistantes juridiques.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domaines d'intervention -->
+    <section id="domaines" class="section">
+        <div class="container">
+            <h2 class="section-title">Nos domaines d'intervention</h2>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <h5><i class="fas fa-building text-primary mr-3"></i>Droit immobilier</h5>
+                        <p>Construction, ventes immobilières, promotion immobilière, copropriété</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <h5><i class="fas fa-chart-line text-primary mr-3"></i>Droit économique et commercial</h5>
+                        <p>Contentieux commercial, concurrence et distribution, droit des affaires</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <h5><i class="fas fa-shield-alt text-primary mr-3"></i>Droit de la responsabilité</h5>
+                        <p>Responsabilité civile, responsabilité des dirigeants</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <h5><i class="fas fa-umbrella text-primary mr-3"></i>Droit des assurances</h5>
+                        <p>Contentieux assurance, expertise et indemnisation</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <h5><i class="fas fa-user-injured text-primary mr-3"></i>Réparation du préjudice corporel</h5>
+                        <p>Accidents, faute inexcusable, contentieux accident du travail</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <h5><i class="fas fa-briefcase text-primary mr-3"></i>Contentieux du contrat de travail</h5>
+                        <p>Droit du travail, relations sociales</p>
+                    </div>
+                </div>
+                <div class="col-lg-12 mb-4">
+                    <div class="domain-card">
+                        <h5><i class="fas fa-gavel text-primary mr-3"></i>Droit pénal</h5>
+                        <p>Droit pénal général et droit pénal des affaires</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipe -->
+    <section id="equipe" class="section">
+        <div class="container">
+            <h2 class="section-title">Notre équipe</h2>
+            
+            <!-- Associés -->
+            <h3 class="text-center mb-5 text-primary">Associés</h3>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="team-card text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=240&fit=crop" class="card-img-top" alt="Employee Photo">
+                        <h5 class="font-weight-bold">Bertrand BALAS</h5>
+                        <p class="small mb-3">Prestation de serment : décembre 1985<br>
+                        Ancien membre du Conseil de l'Ordre<br>
+                        Certificat de Spécialisation en droit immobilier</p>
+                        <p class="small"><strong>Domaines :</strong> Construction, ventes immobilières, copropriété, responsabilité civile et assurance, baux, préjudice corporel</p>
+                        <a href="mailto:balas@balasmetral.com" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-envelope mr-1"></i> Contact
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="team-card text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=300&h=240&fit=crop" class="card-img-top" alt="Employee Photo">
+                        <h5 class="font-weight-bold">Bruno METRAL</h5>
+                        <p class="small mb-3">Prestation de serment : décembre 1988<br>
+                        Ancien membre du Conseil de l'Ordre</p>
+                        <p class="small"><strong>Domaines :</strong> Construction, responsabilité civile, contentieux commercial, droit de la consommation, droit pénal des affaires</p>
+                        <a href="mailto:metral@balasmetral.com" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-envelope mr-1"></i> Contact
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="team-card text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=200&fit=crop&crop=face" class="card-img-top" alt="Employee Photo">
+                        <h5 class="font-weight-bold">Audrey Elise MICHEL</h5>
+                        <p class="text-primary mb-3">Associée</p>
+                        <p class="small mb-3">Prestation de serment : décembre 2011<br>
+                        DESS de droit pénal et sciences criminelles</p>
+                        <p class="small"><strong>Domaines :</strong> Construction, responsabilité civile, rénovation énergétique, droit de la consommation, droit pénal</p>
+                        <a href="mailto:michel@balasmetral.com" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-envelope mr-1"></i> Contact
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="team-card text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop&crop=face" class="card-img-top" alt="Employee Photo">
+                        <h5 class="font-weight-bold">Vincent HILAIRE</h5>
+                        <p class="text-primary mb-3">Associé</p>
+                        <p class="small mb-3">Prestation de serment : décembre 2015<br>
+                        Master 2 Droit immobilier</p>
+                        <p class="small"><strong>Domaines :</strong> Construction, ventes immobilières, copropriété, responsabilité civile, baux, contentieux automobile</p>
+                        <a href="mailto:hilaire@balasmetral.com" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-envelope mr-1"></i> Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collaborateurs -->
+            <h3 class="text-center mb-5 text-primary mt-5">Collaborateurs</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-8 mb-8">
+                    <div class="team-card text-center p-4">
+                        <img src="https://plus.unsplash.com/premium_photo-1689977807477-a579eda91fa2?w=300&h=300&fit=crop&crop=face" class="card-img-top" alt="Employee Photo">
+                        <h5 class="font-weight-bold">Adrien DUPIN</h5>
+                        <p class="small mb-3">Prestation de serment : décembre 2024<br>
+                        Master 2 de droit des affaires</p>
+                        <p class="small"><strong>Domaines :</strong> Construction, responsabilité civile, contentieux commercial, droit des affaires, préjudice corporel</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8 mb-8">
+                    <div class="team-card text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" class="card-img-top" alt="Employee Photo">
+                        <h5 class="font-weight-bold">Kévin COELHO FERREIRA</h5>
+                        <p class="small mb-3">Prestation de serment : décembre 2024<br>
+                        Master 2 Droit civil approfondi</p>
+                        <p class="small"><strong>Domaines :</strong> Construction, responsabilité civile, rénovation énergétique, contentieux automobile</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8 mb-8">
+                    <div class="team-card text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=face" class="card-img-top" alt="Employee Photo">
+                        <h5 class="font-weight-bold">Adrien DUPIN</h5>
+                        <p class="small mb-3">Prestation de serment : décembre 2024<br>
+                        Master 2 de droit des affaires</p>
+                        <p class="small"><strong>Domaines :</strong> Construction, responsabilité civile, contentieux commercial, droit des affaires, préjudice corporel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Honoraire -->
+    <section id="honoraire" class="section honoraire">
+        <div class="container">
+            <h2 class="section-title">Honoraires</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center">
+                        <p class="lead mb-4">
+                            Le Cabinet 1948 Avocats établit ses honoraires en toute transparence avec ses clients, de facon préalable, en fonction de la situation du client, de la difficulté prévisible du dossier et de l’honorabilité du Cabinet.
+                            Le Cabinet peut convenir avec son client d’un montant forfaitaire pour l’ensemble du traitement du dossier, notamment en cas de procédure. En accord avec le client, le montant des honoraires peut être établi en fonction du temps passé par le Cabinet et de son tarif horaire.
+                            Un honoraire de résultat peut également être convenu, en plus d’un honoraire basé sur un forfait ou un quota d’heures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Nous contacter</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="contact-info">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <h6 class="mb-1">Adresse</h6>
+                                        <p class="mb-0">40 rue Président Edouard Herriot<br>CS 10290<br>69281 LYON Cedex 01</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-info">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <h6 class="mb-1">Téléphone</h6>
+                                        <p class="mb-0"><a href="tel:0478288666" class="text-decoration-none">04 78 28 86 66</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-info">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <h6 class="mb-1">Email</h6>
+                                        <p class="mb-0"><a href="mailto:avocats@balasmetral.com" class="text-decoration-none">avocats@balasmetral.com</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-info">
+                                    <i class="fas fa-globe"></i>
+                                    <div>
+                                        <h6 class="mb-1">Site web</h6>
+                                        <p class="mb-0"><a href="http://www.balas-metral-avocats.com" target="_blank" class="text-decoration-none">www.balas-metral-avocats.com</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <a href="mailto:avocats@balasmetral.com" class="btn btn-primary">
+                                <i class="fas fa-paper-plane mr-2"></i>Prendre rendez-vous
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Balas Metral & Associés - Cabinet d'Avocats à Lyon</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        $(document).ready(function() {
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 80
+                    }, 200, 'swing');
+                }
+            });
+
+            // Close mobile menu when clicking on a link
+            $('.navbar-nav a').on('click', function() {
+                $('.navbar-collapse').collapse('hide');
+            });
+
+            // Add scrolled class to navbar
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
