@@ -7,12 +7,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Color Palette */
         :root {
             --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
             --text-dark: #2c3e50;
             --text-light: #7f8c8d;
+            --secondary-color: #437091;
+            --accent-color: #437091;
+            --blue-nav: #1d3b57;
+        }
+        .text-primary {
+            color: var(--accent-color) !important; /* your vivid orange */
+        }
+        .btn-outline-primary {
+            color: var(--accent-color); /* Text color */
+            border-color: var(--accent-color); /* Border color */
+        }
+        .btn-outline-primary:hover {
+            background-color: var(--accent-color); /* Background on hover */
+            color: #fff; /* Text color on hover */
         }
 
         html {
@@ -26,7 +39,7 @@
         }
 
         .navbar {
-            background: rgba(41, 84, 126, 0.95) !important;
+            background: var(--blue-nav) !important;
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
@@ -578,8 +591,11 @@
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4">
         <div class="container">
-            <p class="mb-0">&copy; 2025 Balas Metral & associés - Cabinet d'Avocats à Lyon</p>
+            <p class="mb-0">&copy; <span id="year"></span> Balas Metral & associés - Cabinet d'Avocats à Lyon</p>
         </div>
+        <script>
+            document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
